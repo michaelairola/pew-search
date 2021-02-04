@@ -19,7 +19,7 @@ function SearchResult({ question, apiKey, isFetching }) {
 			})
 		}
 	})
-	let labels, data;
+	let labels = [], data = [];
 	if(q) {
 		const fmtQ = q.responses.map(res => ({ key: res.displayText.value, value: res.percentage }))
 		labels = fmtQ.map(({ key }) => key);
@@ -33,18 +33,19 @@ function SearchResult({ question, apiKey, isFetching }) {
 			classNames="fade"
 			appear
 		>
-		<div>
+		<div
+			className={cx("search-result", { "testing": fmtTxt.testing })} 
+			ref={nodeRef}
+		>
 			<div 
 				onClick={() => setOpen(!open)}
-				className={cx("search-result", { "testing": fmtTxt.testing })} 
-				ref={nodeRef}
 			><div>{fmtTxt.question}</div>
 			  {fmtTxt.choices ? ( 
 			    <ol>{fmtTxt.choices.map((c,j) => <li key={j}>{c}</li>)}</ol> 
 			  ) : ""}
 			</div>
 			{ open && (<h1> Open!</h1>)}
-			{ q && <Bar data={{
+			{ open && <Bar data={{
 				      labels, 
 				      datasets: [{ 
 				        label: "percent", 
