@@ -3,6 +3,7 @@ const { getApiKey, search } = require('./api.js');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+const ENV = process.env.ENV || "DEVELOPMENT"
 const error = 'Something went wrong. Please try again in 10-20 minutes.'
 
 app.get("/api/key", (req, res) => 
