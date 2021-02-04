@@ -4,8 +4,9 @@ WORKDIR /app
 COPY . .
 RUN yarn install
 RUN yarn build
-EXPOSE 8000
-CMD [ "npm", "run", "serve;" ]
+ENTRYPOINT [ "npm", "run", "serve" ]
+
+EXPOSE 8080
 # WORKDIR /app
 # ENV PATH /app/node_modules/.bin:$PATH
 # COPY ./package.json /app/
