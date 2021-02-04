@@ -41,7 +41,7 @@ function App() {
       </header>
         <div style={{ width: "100vw" }}>
           { isFetching && <LoadingData isFetching={isFetching}/> }
-          { data && data.results && data.results.map((question, i) => <SearchResult key={i} question={question} isFetching={isFetching} /> ) }
+          { data && data.results && data.results.map((question, i) => <SearchResult key={i} question={question} isFetching={isFetching} apiKey={apiKey}/> ) }
         </div>
     </div>
   );

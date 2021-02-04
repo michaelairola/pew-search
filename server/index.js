@@ -1,6 +1,6 @@
 var express = require('express');
 const path = require('path');
-const { getApiKey, search } = require('./api.js');
+const { getApiKey, search, getQuestion } = require('./api.js');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -25,6 +25,15 @@ app.get("/api/search", (req, res) => {
 	const q = query.q
 	console.log("searching for:", q) 
 	return search({ authorization, order, perPage, scope, sort, q }).then(
+		data => res.json({ data }),
+		err => res.json({ error })
+	)
+})
+app.get("/api/question", (req, res) => {
+	const { authorization } = req.headers;
+	if(!authorization) return res.json({ error: "No Auth token!" })
+	const { sid, id } = req.query;
+	return getQuestion(authorization, sid, id).then(
 		data => res.json({ data }),
 		err => res.json({ error })
 	)

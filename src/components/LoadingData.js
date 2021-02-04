@@ -3,7 +3,6 @@ import {CSSTransition} from 'react-transition-group';
 
 function LoadingData({ isFetching }) {
 	const nodeRef = React.createRef()
-	console.log(isFetching)
 	return (
 		<CSSTransition
 			nodeRef={nodeRef}
