@@ -24,7 +24,6 @@ input, button
 #cover
 {
     margin: 0;
-    width: 1000px;
     padding: 35px;
     background-color: #0074D9;
     border-radius: 20px;
@@ -140,20 +139,3 @@ button span:before, button span:after
     width: 40px;
     background-color: #fff;
 }
-
-/*#ytd-url {
-  display: block;
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  padding: 10px 14px;
-  margin: 20px;
-  color: #fff;
-  font-family: Nunito;
-  font-size: 14px;
-  text-decoration: none;
-  background-color: #0074D9;
-  border-radius: 4px;
-  box-shadow: 0 10px 20px -5px rgba(255, 117, 117, 0.86);
-  z-index: 125;
-}*/

@@ -1,15 +1,26 @@
-// import { useState, useEffect } from "react";
+import React from "react";
+import cx from "classnames";
+import {CSSTransition} from 'react-transition-group';
 import { fmtText } from '../util.js';
-
-function SearchResult({ question }) {
+import "./SearchResult.css";
+function SearchResult({ question, isFetching }) {
 	const fmtTxt = fmtText(question.questionText)
+	const nodeRef= React.createRef()
 	return (
-		<div className={fmtTxt.testing ? 'search-result testing' : 'search-result'}>
+		<CSSTransition 
+			in={!isFetching}
+			nodeRef={nodeRef}
+			timeout={500}
+			classNames="fade"
+			appear
+		>
+		<div className={cx("search-result", { "testing": fmtTxt.testing })} ref={nodeRef}>
 		  <div>{fmtTxt.question}</div>
 		  {fmtTxt.choices ? ( 
 		    <ol>{fmtTxt.choices.map((c,j) => <li key={j}>{c}</li>)}</ol> 
 		  ) : ""}
 		</div>
+		</CSSTransition>
 	)  
 }
 
