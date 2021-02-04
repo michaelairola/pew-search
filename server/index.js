@@ -1,4 +1,5 @@
 var express = require('express');
+const path = require('path');
 const { getApiKey, search } = require('./api.js');
 
 const app = express();
@@ -29,4 +30,12 @@ app.get("/api/search", (req, res) => {
 	)
 })
 
-app.listen(PORT, () => console.log(`Searving on port ${PORT}`));
+if(ENV==="PRODUCTION"){
+	const build_path = path.join(__dirname, "../build");
+	app.use(express.static(build_path));
+	app.get("/", (req, res) => {
+	 res.sendFile(path.join(build_path, "index.html"));
+	});
+}
+
+app.listen(PORT, () => console.log(`Serving on port ${PORT}`));
