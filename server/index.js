@@ -1,5 +1,5 @@
 var express = require('express');
-const { getApiKey, search } = require('./get-api-key.js');
+const { getApiKey, search } = require('./api.js');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
