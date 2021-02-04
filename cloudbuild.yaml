@@ -1,7 +1,7 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/pew-search/resume', '.']
+  args: ['build', '-t', 'gcr.io/pew-search/pew-search', '.']
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/pew-search/resume']
+  args: ['push', 'gcr.io/pew-search/pew-search']
 - name: 'gcr.io/cloud-builders/gcloud'
-  args: ['beta', 'run', 'deploy', 'resume', '--image', 'gcr.io/pew-search/resume', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
+  args: ['beta', 'run', 'deploy', 'pew-search', '--image', 'gcr.io/pew-search/pew-search', '--region', 'us-central1', '--platform', 'managed', '--allow-unauthenticated']
