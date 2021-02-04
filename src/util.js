@@ -19,7 +19,7 @@ export const fmtText = txt => {
         else question += ": " + matches[1]
         choices[0] = matches[2]
       }
-      choices = choices.filter(x => x)
+      choices = choices.filter(x => x).map(x => x.startsWith(" ") ? x.replace(" ", "") : x)
     } else {
       let choice = checkForQuestion[2]
       question = matchEachPhrases(question, choice).question
