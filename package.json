@@ -23,7 +23,7 @@
     "start": "concurrently \"npm:client\" \"npm:serve:dev\"",
     "client": "react-scripts start",
     "serve:dev": "ENV=DEVELOPMENT PORT=3001 node server/index.js",
-    "serve": "ENV=PRODUCTION PORT=8000 node server/index.js",
+    "serve": "ENV=PRODUCTION node server/index.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
