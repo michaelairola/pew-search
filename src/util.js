@@ -1,16 +1,19 @@
+
 export const fmtText = txt => {
   let question = txt.replace("(", "").replace(")", "");
   let choices, testing;
-  const checkForQuestion = question.match(/(.*)\?\.{3}(.*)/) 
-  
-  if(checkForQuestion) {
+  const checkForSpecialCase = matchSpecialCase(question)
+  const checkForQuestion = question.match(/(.*)\?\.{3}(.*)/)   
+  if(checkForSpecialCase) {
+    question = checkForSpecialCase.question;
+    question += "?"
+  } else if(checkForQuestion) {
     question = checkForQuestion[1];
     let tmpChoices = checkForQuestion[2];
     if(tmpChoices.match(",")) {
       choices = tmpChoices.split(/(?<!(Yes|yes|No|no)),/g)
       if(choices[0].match(/\.{3,}/)) {
         const matches = choices[0].match(/(.*?)\.{3,}(.*)/)
-        testing = true;
         let m = matchEachPhrases(question, matches[1])
         if(m.match) question = m.question
         else question += ": " + matches[1]
@@ -19,7 +22,6 @@ export const fmtText = txt => {
       choices = choices.filter(x => x)
     } else {
       let choice = checkForQuestion[2]
-      testing = true;
       question = matchEachPhrases(question, choice).question
     }
     question += "?";
@@ -28,6 +30,16 @@ export const fmtText = txt => {
   return { question, choices, testing }
 }
 
+const matchSpecialCase = question => {
+  let YesNo = /Here's a list of activities some people do and others do not./
+  let m = question.match(YesNo)
+  if (m) {
+    let qSplit = question.split(/\.{3,}(.*$)/)
+    const quant = question.match(/past year|past month|past 6 months/)
+    question = `Have you in the ${quant} ${qSplit[1]}`
+    return { match: true, question }
+  }
+}
 
 const matchEachPhrases = (question, choice) => {
   const eachKeyPhrases = [ 'each of the following' ];

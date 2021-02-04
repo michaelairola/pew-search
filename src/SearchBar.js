@@ -22,7 +22,7 @@ function SearchBar({ query, onChange, apiKey, setState }) {
 		      	/>
 	      	  </div>
 		      <div className="td" id="s-cover">
-		        <button type="submit">
+		        <button onClick={() => search(query)}>
 		          <div id="s-circle"></div>
 		          <span></span>
 		        </button>
