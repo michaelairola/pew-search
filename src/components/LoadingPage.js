@@ -11,7 +11,7 @@ function LoadingPage({ apiKey }) {
 			classNames="fade"
 			appear
 		>
-		<div id="loading-page" ref={nodeRef}><h1>Loading Api key...</h1></div>
+		<div id="loading-page" ref={nodeRef}><h1>Loading Page...</h1></div>
 		</CSSTransition>
 	)
 }

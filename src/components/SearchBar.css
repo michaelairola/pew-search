@@ -13,7 +13,7 @@
 input, button
 {   
     outline: none;
-    color: #00008B;
+    color: black;
     font-family: Nunito;
     padding: 0;
     margin: 0;
@@ -25,15 +25,15 @@ input, button
 {
     margin: 0;
     padding: 35px;
-    background-color: #0074D9;
+    background-color: white;
     border-radius: 20px;
-    box-shadow: 0 10px 40px #0074D9, 0 0 0 20px #FFFFFF;
+    box-shadow: 0 10px 40px black, 0 0 0 20px white;
     transform: scale(0.6);
 }
 
 input[type="text"]
 {
-    border: solid 1px #0074D9;
+    border: solid 1px white;
     width: 100%;
     height: 96px;
     font-size: 60px;
@@ -42,7 +42,7 @@ input[type="text"]
 
 input[type="text"]::placeholder
 {
-    color: #00008B;
+    color: grey;
 }
 
 #s-cover
@@ -69,7 +69,7 @@ button
     height: 43px;
     margin-top: 0;
     border-width: 15px;
-    border: 15px solid #fff;
+    border: 15px solid black;
     background-color: transparent;
     border-radius: 50%;
     transition: 0.5s ease all;
@@ -85,7 +85,7 @@ button span
     height: 15px;
     background-color: transparent;
     border-radius: 10px;
-    transform: rotateZ(43deg);
+    transform: rotateZ(52deg);
     transition: 0.5s ease all;
 }
 
@@ -97,7 +97,7 @@ button span:before, button span:after
     right: 0;
     width: 45px;
     height: 15px;
-    background-color: #fff;
+    background-color: black;
     border-radius: 10px;
     transform: rotateZ(0);
     transition: 0.5s ease all;
@@ -109,7 +109,7 @@ button span:before, button span:after
     width: 67px;
     height: 15px;
     border-width: 0;
-    background-color: #fff;
+    background-color: black;
     border-radius: 20px;
 }
 
@@ -137,5 +137,5 @@ button span:before, button span:after
 {
     right: -6px;
     width: 40px;
-    background-color: #fff;
+    background-color: black;
 }

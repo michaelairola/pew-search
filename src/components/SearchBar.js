@@ -4,8 +4,12 @@ function SearchBar({ query, onChange, apiKey, setState }) {
 	const search = (q) => {
 	  setState({ isFetching: true })
 	  fetch(`/api/search?q=${q}`, { headers: { authorization: `Bearer ${apiKey}`}}).then(res => res.json()).then(({ data, error }) => {
-	    if(error) return console.log(error);
-	    setState({ data: data.data, isFetching: false })
+	    if(error) {
+	    	setState({ data: [], isFetching: false, invalidQuery: true })
+	    	// return console.log(error);
+	    	return
+	    }
+	    setState({ data: data.data, isFetching: false, invalidQuery: false })
 	  })
 	}
 	

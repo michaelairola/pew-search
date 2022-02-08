@@ -19,7 +19,7 @@ function SearchResult({ question, apiKey, isFetching }) {
 			})
 		}
 	})
-	let labels = [], data = [];
+	let labels = ["","","","",""], data = [];
 	if(q) {
 		const fmtQ = q.responses.map(res => ({ key: res.displayText.value, value: res.percentage }))
 		labels = fmtQ.map(({ key }) => key);
@@ -37,14 +37,15 @@ function SearchResult({ question, apiKey, isFetching }) {
 			className={cx("search-result", { "testing": fmtTxt.testing })} 
 			ref={nodeRef}
 		>
-			<div 
-				onClick={() => setOpen(!open)}
-			><div>{fmtTxt.question}</div>
-			  {fmtTxt.choices ? ( 
-			    <ol>{fmtTxt.choices.map((c,j) => <li key={j}>{c}</li>)}</ol> 
-			  ) : ""}
+			<div id="result-summary">
+				<div id="result-question">
+					<div>{fmtTxt.question}</div>
+					  {fmtTxt.choices ? ( 
+					    <ol>{fmtTxt.choices.map((c,j) => <li key={j}>{c}</li>)}</ol> 
+					  ) : ""}
+				</div>
+				<button onClick={() => setOpen(!open)}><i className={open ? "arrow down" : "arrow up"}></i></button>
 			</div>
-			{ open && (<h1> Open!</h1>)}
 			{ open && <Bar data={{
 				      labels, 
 				      datasets: [{ 

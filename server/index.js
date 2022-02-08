@@ -10,7 +10,7 @@ const error = 'Something went wrong. Please try again in 10-20 minutes.'
 app.get("/api/key", (req, res) => 
 	getApiKey().then(
 		apiKey => res.json({ apiKey }), 
-		err => res.json({ error })
+		err => { console.log(err); res.json({ error }) }
 	)
 )
 app.get("/api/search", (req, res) => {
@@ -26,7 +26,7 @@ app.get("/api/search", (req, res) => {
 	console.log("searching for:", q) 
 	return search({ authorization, order, perPage, scope, sort, q }).then(
 		data => res.json({ data }),
-		err => res.json({ error })
+		err => { console.log(err); res.json({ error }) }
 	)
 })
 app.get("/api/question", (req, res) => {

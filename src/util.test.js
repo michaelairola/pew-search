@@ -19,6 +19,12 @@ const questionTextFmtMap = {
 	// TODO remove ... from question
 	"And is your overall opinion of...Jeb Bush very favorable, mostly favorable, mostly unfavorable, or very unfavorable?": {
 		question: "And is your overall opinion of...Jeb Bush very favorable, mostly favorable, mostly unfavorable, or very unfavorable?",
+	},
+	"(How much of a priority should each of the following be for the president (Joe Biden) and Congress to address this year?...Top priority, important but lower priority, not too important, should not be done)...Addressing issues around race in this county": {
+		question: "How much of a priority should Addressing issues around race in this county be for the president Joe Biden and Congress to address this year?",
+		choices: [
+			"Top priority", "important but lower priority", "not too important", "should not be done"
+		]
 	}
 
 }
