@@ -38,6 +38,7 @@ function App() {
             appear
           ><div ref={nodeRef}>
             <img src={logo} className="App-logo" alt="logo" />
+            <p>A smoother UI for the <a target="_blank" href="https://www.pewresearch.org/question-search/">Pew Research Center</a></p>
             <div>
               <SearchBar query={query} setState={setState} apiKey={apiKey}/>
             </div>
